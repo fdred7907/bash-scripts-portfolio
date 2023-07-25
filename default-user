@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# enter username or print out a default
+
+read -e -i $USER -p "What is your username -> " 
+echo "The user name is $REPLY"

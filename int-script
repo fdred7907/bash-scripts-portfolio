@@ -1,0 +1,27 @@
+#!/bin/bash
+
+echo -n "Enter an Integer ->"
+read INT
+
+if [ -z "$INT" ]; then
+	echo "INT is empty." >$2
+	exit
+fi
+
+if [ $INT -eq 0 ]; then
+	echo "INT is zero."
+else
+	if [ $INT -lt 0 ]; then
+		echo "INT is negative."
+	else
+		echo "INT is positive."
+	fi
+	if  [ $((INT % 2)) -eq 0 ]; then
+		echo "INT is even."
+	else
+		echo "INT is odd."
+        fi
+fi
+
+
+

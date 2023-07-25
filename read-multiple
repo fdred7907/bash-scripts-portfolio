@@ -1,0 +1,8 @@
+#!/bin/bash
+
+#read multiple values wit prompt
+
+read -p "Enter several values "
+
+echo "REPLY = '$REPLY'"
+

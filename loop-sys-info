@@ -1,0 +1,47 @@
+#!/bin/bash
+
+#menu driven sys info page
+DELAY=3
+while [[ $REPLY != 0 ]]; do
+    clear
+    cat <<-_EOF_
+        Please select an option:
+
+        1. Show system info
+        2. Show Disk Space
+        3. Show Home Directory Utlization
+        0. Exit
+_EOF_
+
+    read -p "Enter the selection (0-3) > "
+
+    if [[ $REPLY =~ ^[0-3]$ ]];then
+        # if [[ $REPLY == 0 ]]; then
+            # echo "Exiting"
+            # exit
+        # fi
+        if [[ $REPLY == 1 ]];then 
+            echo "Host : $HOSTNAME"
+            uptime
+            sleep $DELAY
+        fi
+        if [[ $REPLY == 2 ]];then
+            df -h
+            sleep $DELAY
+        fi
+        if [[ $REPLY == 3 ]]; then
+            if [[ $(id -u) -eq 0 ]];then
+                echo "All Users Home Space"
+                du -sh /home/*
+            else
+                echo "Home Space for ($USER)"
+                du -sh $HOME
+            fi
+            sleep $DELAY
+        fi
+    else
+        echo "Invalid Entry " >&2
+        sleep $DELAY
+    fi
+done
+echo "Program exited"
