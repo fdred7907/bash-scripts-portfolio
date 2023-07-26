@@ -1,0 +1,15 @@
+#!/bin/bash
+
+#missing operator error
+
+number=
+
+if [ $number = 1 ];then
+    echo "Number is one."
+else    
+    echo "Number is not one."
+fi
+
+#$number is empty so counts as no argument ;
+# test expect unary operator before = 
+# and so the error

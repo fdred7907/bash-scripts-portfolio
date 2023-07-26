@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# missing-token error due to incomplete compound command
+
+number=1
+
+if [ $number = 1 ] then 
+    echo "Number is equal to 1."
+else 
+    echo "Number is not equal to 1."
+fi
+
+# misssing semi colon after test -> all are read as arguments after it until reserve word else

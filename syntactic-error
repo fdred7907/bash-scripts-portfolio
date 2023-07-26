@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# trouble : script to demonstrate syntactic error
+
+number=1
+
+if [$number = 1] ; then
+    echo "number is 1.
+else
+    echo "Number is not equal to 1."
+fi
+
