@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# script to activate tracing selectively on certain line numbers only
+
+number=1
+
+set -x # turn on tracing
+
+if [ $number = 1 ]; then    
+    echo "Number is equal to 1."
+else 
+    echo "Number is not equal to 1."
+fi
+set +x #turn off tracing
+
+

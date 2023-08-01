@@ -1,0 +1,45 @@
+#!/bin/bash 
+
+# branching is simpler with case flow control
+
+# menu driven system info program
+
+clear
+
+echo "
+Select one of the following:
+
+1. Display System Information
+2. Display Disk Space
+3. Display Home Space Utilization
+0. Quit
+"
+
+read -p "Enter Selection [0-3] > "
+
+case $REPLY in 
+    0)  echo "Program Ended."
+        exit 
+        ;;
+
+    1)  echo "Hostname is : $HOSTNAME"
+        uptime
+        ;;
+
+    2)  df -h
+        ;;
+
+    3)  if [[ $(id -u) -eq 0 ]]; then
+            echo "Home Space Utilization (All USers)"
+            du -sh /home/*
+        else
+            echo "Home Space Utilization ($USER)"
+            du -sh $HOME
+        fi
+        ;;
+    *)  echo "Invalid Selection">&2
+        exit 1
+        ;;
+esac
+
+

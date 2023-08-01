@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# script to prevent unwanted dangerous behaviour with defensive programming 
+
+# delete files in $dir_name 
+
+# the simple cd $REPLY
+
+# rm *
+
+#does not work because if no cd into $reply then whole directory outside $reply deletes
+
+read -p "Please enter the dir name to delete"
+
+
+[[ -d $REPLY ]] && cd $REPLY && [[ -z $(ls -A $REPLY) ]] && rm * && exit 1
+
+#terminate with error to show which part of the condition failed
+
+if [[ ! -d $REPLY ]] ; then
+    echo " Directory '$REPLY' does not exist. " >&2
+    exit 1
+fi
+
+if ! cd $REPLY ;  then
+    echo " Cannot cd into '$REPLY'. " >&2
+    exit 1
+fi
+if ! rm * ; then
+    echo " Failed at file deletion step ." >&2
+    exit 1
+fi
+
+
+

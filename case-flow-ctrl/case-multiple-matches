@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# case multiple matches
+
+clear
+read -n 1 -p "Enter a single character "
+
+case $REPLY in
+    [[:upper:]]) echo " You entered an uppercase character" ;;&
+    [[:lower:]]) echo " You entered a lowercase character" ;;&
+    [[:alpha:]]) echo " You entered an alphabet" ;;&
+    [[:digit:]]) echo " You entered a digit";;&
+    [[:graph:]]) echo " You entered a graphical character" ;;&
+    [[:punc:]])  echo " You entered a punctuation character";;&
+    [[:xdigit:]])    echo " You entered a punctuation character" ;;&
+    [[:space:]]) echo " You entered a white space";;&
+esac
+
+

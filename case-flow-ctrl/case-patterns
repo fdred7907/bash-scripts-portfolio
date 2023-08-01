@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# case patterns 
+
+clear
+read -p "Enter a word"
+
+case $REPLY in 
+
+    [[:alpha:]])    echo "You entered a single alphabet"
+                    ;;
+    ???)    echo "You entered a 3 character word"
+            ;;
+    *.txt)  echo "You entered name of a text file"
+            ;;
+    [ABC][0-9]) echo "You entered A,B or C followed by a digit"
+                ;;
+    *)  echo "You entered any word "
+        ;;
+esac
+
